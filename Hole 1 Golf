@@ -1,0 +1,59 @@
+import random
+
+#Outcome lists
+Driver = ["Nice drive. You hit it 304 down the middle and your ball rolled out 15 extra yards."]
+Wood = ["Nice shot. 275 down the middle just over the middle bunkers.", 'Your drive was decent and you are 260 yards down the left side in the fairway.', 'You hit a good shot but ended up in the bunker 260 yards down the middle', 'Your shot went a little to far to the left and you rolled into the rough 267 yards down the fairway on the left']
+Iron = ["You hit a nice safe shot 235 yards down the fairway.", 'You hit your iron a little to the left in the rough 239 yards down the fairway.']
+Dunk = ["Wow you dunked it in for an eagle!", 'You hit it long and ended up 30 feet past the hole but your on the green.', 'You missed the hole to the right and are 20 feet from the hole on the green.', 'Wow that was bad. You missed the green completly to the left and landed in a bunker.']
+print("Welcome to Gearhart Golf links, You are about to tee off on hole 1.")
+Eagle = ["Nice job going -2 on the day, your done."]
+Par = ["Nice putt center cup for par.", 'Your hands were very shaky and you lipped out and missed your par putt. You snap your putter in half throw it 40 feet into the road and hit a car. You walk up to your ball pick it up and drop kick it, However you miss the ball with your foot and instead slip and fall on your back. You now lay there and wonder where it all went wrong.']
+Make = ["Your a wizard because you just made it out of the bunker for a birdie! You have finished your game -1."]
+Safe = ["Good job you hit it out of the bunker and very close. Then you made a 3 foot par putt to go even on the day, Your done."]
+#heres a description of the hole
+print("Hole 1 is an easy par 4 sitting at 312 yards from the tee box. There are 2 bunkers in the middle of the fairway at 244 yards and 260 yards from the tee box. 2 more bunkers line the left side 283 yards down and 306 yards. Theres no trouble to the left of the fairway but to the right theres heavy trouble so stay right. Once up around the green there are 2 greenside bunkers on the left and right sides. No need to worry about wind on the first hole either.")
+#Heres the club you can tee off with
+print("Time to tee of here is your driver.")
+print("Driver - 300 yards")
+#Time to pick a club
+Teeshot = input("Pick club:")
+if (Teeshot == "Driver"):
+  pickAnswer = random.choice(Driver)
+  print(pickAnswer)
+  if (pickAnswer == "Nice drive. You hit it 304 down the middle and your ball rolled out 15 extra yards."):
+    print("After a 319 yard drive your ball lays in the middle of the fairway 49 yards out.")
+    print("If you want to Dunk it type Dunk it but if not type Roll it")
+    Wedge = input("This is a wedge shot so would you like to try and dunk it in the hole or roll it up to the hole?")
+    if (Wedge == "Dunk it"):
+      pickAnswer = random.choice(Dunk)
+      print(pickAnswer)
+      if (pickAnswer == "Wow you dunked it in for an eagle!"):
+        print("You went -2 on the day, good job your done.")
+      elif (pickAnswer == 'You hit it long and ended up 30 feet past the hole but your on the green.'):
+        Lputt = input("Being on the green in 2 shots is good heres your putt for birdie. This is a long putt with a good amount of break so you probably wont make it. Type Continue to hit your putt:")
+        if (Lputt == "Continue"):
+          print("You hit your ball straight at the hole and your ball broke to the right and you missed.")
+          Sputt = input("This is a short par putt thats slopes down to the left alot. Type Straight to hit this putt.")
+          if (Sputt == "Straight"):
+            Bputt = input("Your putt started straight at the hole but then broke 4 feet left and you missed your par putt. Your bogey putt is straight up a slope 4 feet. Would you like to hit this putt 4 feet or 6 feet.(Type the numerical value of your answer ex:4,6:")
+            if (Bputt == "4"):
+              print("You hit your bogey putt short and shamefully walked up and tapped in your double bogey. +2 on the day and your done.")
+            elif (Bputt == "6"):
+              print("Good job saving bogey. You went +1 on the day and your done.")
+      elif (pickAnswer == "You missed the hole to the right and are 20 feet from the hole on the green."):
+        Lputt = input("Its a long birdie putt but its makeable. This is a long straight 20 foot putt. Type Next to hit your putt:")
+        if (Lputt == "Next"):
+          print("You hit your ball straight at the hole and your ball broke to the right 4 feet and you missed.")
+          Pputt = input("This is a easy par putt thats 4 feet and straight. Type Par to hit this putt.")
+          if (Pputt == "Par"):
+            pickAnswer = random.choice(Par)
+            print(pickAnswer)
+      elif (pickAnswer == "Wow that was bad. You missed the green completly to the left and landed in a bunker."):
+        print("Its gonna be a tough 2 shots to save par but you can do it")
+        Bunker = input("You are in a greenside bunker do you want to try and make it out of the bunker or play it safe and hit it close to the hole.(Type Make to make it and Safe to hit it close.")
+        if (Bunker == "Make"):
+          pickAnswer = random.choice(Make)
+          print(pickAnswer)
+        elif (Bunker == "Safe"):
+          pickAnswer = random.choice(Safe)
+          print(pickAnswer)
